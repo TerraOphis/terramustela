@@ -3,89 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terraophis | Boutique d'insectes</title>
+    <title>Terra Mustela | Élevage familial de furets</title>
+    <meta name="description" content="Terra Mustela, élevage familial et certifié de furets. Des furets socialisés en famille, identifiés, vaccinés et suivis toute leur vie.">
+    <meta property="og:title" content="Terra Mustela | Élevage familial de furets">
+    <meta property="og:description" content="Des furets épanouis, élevés en famille et suivis toute leur vie.">
+    <meta property="og:image" content="assets/img/og-image.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 </head>
-<body class="beige-theme">
+<body>
 
-    <nav class="navbar" id="main-navbar">
-    </nav>
+    <nav class="navbar" id="main-navbar"></nav>
 
-    <header class="hero-slider">
-        <div class="slide active">
-            <div class="slide-content">
-                <div class="arrows">
-                    <span class="prev">‹</span>
-                    <span class="next">›</span>
+    <!-- ===================== HERO ===================== -->
+    <header class="hero">
+        <svg class="deco-leaf deco-leaf--1" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M8 92C8 40 40 8 92 8c0 52-32 84-84 84Z"/></svg>
+        <svg class="deco-leaf deco-leaf--2" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M8 92C8 40 40 8 92 8c0 52-32 84-84 84Z"/></svg>
+
+        <div class="container hero-grid">
+            <div>
+                <span class="eyebrow reveal">🐾 Élevage familial &amp; certifié</span>
+                <h1 class="title-xl reveal reveal-delay-1">Des furets <span class="underline-leaf">heureux</span>, élevés en famille, prêts à illuminer la vôtre.</h1>
+                <p class="hero-lead reveal reveal-delay-2">Chez Terra Mustela, chaque petit grandit au cœur de la maison : câlins, jeux, découvertes et suivi vétérinaire. Notre mission&nbsp;? Vous confier un compagnon équilibré, en pleine santé… et un brin farceur.</p>
+                <div class="hero-actions reveal reveal-delay-3">
+                    <a href="/nos-furets" class="btn btn-primary">Découvrir nos furets
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
+                    <a href="/adoption" class="btn btn-ghost">Comment adopter ?</a>
                 </div>
-                <div class="dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                <div class="hero-trust reveal reveal-delay-4">
+                    <span class="trust-chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i>Éleveur diplômé</span>
+                    <span class="trust-chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i>Pucés &amp; vaccinés</span>
+                    <span class="trust-chip"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></i>Suivi à vie</span>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="hero-blob"></div>
+                <img src="assets/img/emblem.png" alt="Emblème Terra Mustela : un furet enroulé autour d'une jeune pousse" class="hero-emblem">
+                <div class="hero-badge hero-badge--1">
+                    <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.1 4.3 2.4.7-1.3 2.2-2.4 4.3-2.4 3.7 0 5.8 3.8 4.3 7.3C19.5 16.4 12 21 12 21Z"/></svg></span>
+                    <span>Socialisés dès la naissance<small>Manipulés chaque jour</small></span>
+                </div>
+                <div class="hero-badge hero-badge--2">
+                    <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
+                    <span>Première portée<small>Liste d'attente ouverte</small></span>
+                </div>
+                <div class="hero-note">
+                    <svg viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 30C18 34 34 26 44 12"/><path d="M36 12h9v9"/></svg>
+                    coucou !
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <section class="features-grid">
-            <div class="feature-card" id="boutique-feature">
-                <img  alt="">
-                <img  alt="">
-                <img  alt="">
-                <img  alt="">
-                <div class="feature-overlay">
-                    <h2>Boutique Animalerie</h2>
-                </div>
-                    <a href="boutique" class="btn-explorer">Explorer</a>
-            </div>
-            <div class="feature-card" id="conseil-feature">
-                <img  alt="">
-                <img  alt="">
-                <img  alt="">
-                <img  alt="">
-                <div class="feature-overlay">
-                    <h2>Conseil et Guide</h2>
-                </div>
-                    <a href="#" class="btn-explorer" style="background: #888; color: #fff; pointer-events: none; box-shadow: none;">À venir</a>
-            </div>
-        </section>
-
-        <section class="instagram-section">
-            <div class="insta-header">
-                <h2>Galerie Instagram</h2>
-                <a href="https://www.instagram.com/terra.ophis" target="_blank" class="insta-handle">@TERRAOPHIS</a>
-            </div>
-            
-            <behold-widget feed-id="bQNZ6B9W6XDxHhcLbFA7"></behold-widget>
-        </section>
-    </main>
-    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h2>Votre Panier</h2>
-            <button class="close-cart" onclick="toggleCart()">&times;</button>
-        </div>
-        <div class="cart-items" id="cartItemsContainer">
-            </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total (hors frais de port)</span>
-                <span id="cartTotalAmount">0.00 €</span>
-            </div>
-            <button class="btn-checkout" id="btnCheckout" onclick="processCheckout()">VALIDER LA COMMANDE</button>
+    <!-- ===================== BANDEAU ===================== -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Joueurs infatigables</span><span>Champions de la sieste</span><span>Danse de guerre garantie</span><span>Curieux de tout</span><span>Câlins à volonté</span><span>Voleurs de chaussettes</span>
+            <span>Joueurs infatigables</span><span>Champions de la sieste</span><span>Danse de guerre garantie</span><span>Curieux de tout</span><span>Câlins à volonté</span><span>Voleurs de chaussettes</span>
         </div>
     </div>
+
+    <!-- ===================== ENGAGEMENTS ===================== -->
+    <section class="section section--sand">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Nos engagements</span>
+                <h2 class="title-lg">Un élevage à taille humaine, pensé pour leur bien-être</h2>
+                <p>Peu de portées, beaucoup d'attention. Chaque furet qui quitte la maison est un ambassadeur de notre exigence.</p>
+            </div>
+
+            <div class="grid-4">
+                <article class="card reveal">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1Z"/></svg></div>
+                    <h3>Élevés en famille</h3>
+                    <p>Pas de cages alignées : nos furets vivent avec nous, au rythme des bruits, des enfants et des câlins du quotidien.</p>
+                </article>
+                <article class="card reveal reveal-delay-1">
+                    <div class="card-icon card-icon--amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                    <h3>Santé contrôlée</h3>
+                    <p>Suivi vétérinaire régulier, vermifuge, antiparasitaire, vaccin contre la maladie de Carré et identification par puce.</p>
+                </article>
+                <article class="card reveal reveal-delay-2">
+                    <div class="card-icon card-icon--peach"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5"/></svg></div>
+                    <h3>Éleveur certifié</h3>
+                    <p>Formation officielle, élevage déclaré et documents de cession réglementaires : tout est carré, transparent et légal.</p>
+                </article>
+                <article class="card reveal reveal-delay-3">
+                    <div class="card-icon card-icon--choco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></div>
+                    <h3>Suivi à vie</h3>
+                    <p>Une question à 2 h du matin sur un éternuement ? On reste joignables bien après l'adoption, pour toute la vie de votre furet.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== À PROPOS (split) ===================== -->
+    <section class="section">
+        <div class="container split">
+            <div class="photo-stack reveal">
+                <div class="sticker"><span><b>100%</b>fait<br>maison</span></div>
+                <figure class="photo-frame" style="margin:0">
+                    <img src="assets/img/emblem.png" alt="" class="placeholder-emblem">
+                    <figcaption><span>Bienvenue chez nous</span>Les photos de la tribu arrivent très bientôt !</figcaption>
+                </figure>
+            </div>
+            <div class="reveal reveal-delay-1">
+                <span class="eyebrow">L'histoire</span>
+                <h2 class="title-lg">Une passion devenue <span class="underline-leaf">vocation</span></h2>
+                <p>Tout a commencé avec un premier furet, un lacet volé et des fous rires à n'en plus finir. Des années de vie commune plus tard, l'envie est devenue projet : créer un élevage officiel, sérieux et chaleureux, où chaque petit reçoit le meilleur départ possible.</p>
+                <ul class="check-list">
+                    <li>Formation et diplôme pour l'élevage d'animaux de compagnie</li>
+                    <li>Reproducteurs sélectionnés pour leur santé et leur caractère</li>
+                    <li>Portées limitées pour garder le temps de bien faire</li>
+                </ul>
+                <a href="/about" class="btn btn-leaf">Découvrir l'élevage
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CHIFFRES ===================== -->
+    <section class="section section--tight section--choco">
+        <div class="container stats">
+            <div class="stat reveal"><strong data-count="18" data-suffix="h">18h</strong><span>de sieste par jour<br>(minimum syndical)</span></div>
+            <div class="stat reveal reveal-delay-1"><strong data-count="10" data-suffix=" ans">10 ans</strong><span>d'espérance de vie<br>bien entouré</span></div>
+            <div class="stat reveal reveal-delay-2"><strong data-count="12" data-suffix=" sem.">12 sem.</strong><span>avant de quitter<br>la maison</span></div>
+            <div class="stat reveal reveal-delay-3"><strong data-count="100" data-suffix="%">100%</strong><span>des petits suivis<br>après l'adoption</span></div>
+        </div>
+    </section>
+
+    <!-- ===================== NOS FURETS ===================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">La tribu</span>
+                <h2 class="title-lg">Faites connaissance avec nos reproducteurs</h2>
+                <p>Des caractères en or et une santé suivie de près : ce sont eux les parents de nos futures portées.</p>
+            </div>
+            <div class="ferret-grid" id="reproGrid" data-limit="3"></div>
+            <div style="text-align:center;margin-top:50px" class="reveal">
+                <a href="/nos-furets" class="btn btn-primary">Voir les portées à venir
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ÉTAPES ===================== -->
+    <section class="section section--leaf">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Adopter chez nous</span>
+                <h2 class="title-lg">De la première question au premier câlin</h2>
+                <p>Une adoption, ça se prépare. On vous accompagne à chaque étape, sans pression.</p>
+            </div>
+            <div class="steps">
+                <div class="step reveal"><div class="step-num"></div><h3>On fait connaissance</h3><p>Vous nous écrivez, on échange sur votre projet et votre quotidien.</p></div>
+                <div class="step reveal reveal-delay-1"><div class="step-num"></div><h3>Liste d'attente</h3><p>Vous êtes prévenu en priorité dès qu'une portée est annoncée.</p></div>
+                <div class="step reveal reveal-delay-2"><div class="step-num"></div><h3>Visite &amp; choix</h3><p>Vous rencontrez les petits et on vous aide à trouver le bon caractère.</p></div>
+                <div class="step reveal reveal-delay-3"><div class="step-num"></div><h3>Réservation</h3><p>Contrat de réservation et nouvelles régulières (photos, vidéos !).</p></div>
+                <div class="step reveal reveal-delay-4"><div class="step-num"></div><h3>Le grand départ</h3><p>Vers 12 semaines, avec son kit, ses papiers et notre numéro.</p></div>
+            </div>
+            <div style="text-align:center;margin-top:60px" class="reveal">
+                <a href="/adoption" class="btn btn-amber">Tout savoir sur l'adoption
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONSEILS ===================== -->
+    <section class="section section--sand">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Le coin des futurs adoptants</span>
+                <h2 class="title-lg">Un furet, est-ce fait pour vous ?</h2>
+                <p>Adorable, oui. Simple, pas toujours. Voici l'essentiel à connaître avant de craquer.</p>
+            </div>
+            <div class="grid-3">
+                <a href="/conseils#alimentation" class="card reveal" style="text-decoration:none">
+                    <div class="card-icon card-icon--amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0Z"/><path d="M8 7c0-1.5 1-2 1-3.5M12 7c0-1.5 1-2 1-3.5M16 7c0-1.5 1-2 1-3.5"/></svg></div>
+                    <h3>Un vrai carnivore</h3>
+                    <p>Pas de fruits, pas de céréales : le furet a besoin d'une alimentation riche en protéines animales.</p>
+                </a>
+                <a href="/conseils#habitat" class="card reveal reveal-delay-1" style="text-decoration:none">
+                    <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+                    <h3>Du temps de liberté</h3>
+                    <p>Au moins 4 heures de sorties par jour dans une pièce sécurisée. C'est un explorateur-né !</p>
+                </a>
+                <a href="/conseils#comportement" class="card reveal reveal-delay-2" style="text-decoration:none">
+                    <div class="card-icon card-icon--peach"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="4"/><circle cx="17" cy="10" r="3"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6M16 15c3 0 6 1.5 6 5"/></svg></div>
+                    <h3>Animal social</h3>
+                    <p>Il adore la compagnie : l'idéal est d'adopter deux furets pour qu'ils jouent ensemble.</p>
+                </a>
+            </div>
+            <div style="text-align:center;margin-top:50px" class="reveal">
+                <a href="/conseils" class="btn btn-ghost">Lire tous nos conseils</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== INSTAGRAM / CTA ===================== -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-band reveal">
+                <svg class="deco" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><ellipse cx="32" cy="42" rx="13" ry="11"/><ellipse cx="14" cy="27" rx="6" ry="8"/><ellipse cx="25" cy="15" rx="6" ry="8"/><ellipse cx="39" cy="15" rx="6" ry="8"/><ellipse cx="50" cy="27" rx="6" ry="8"/></svg>
+                <div>
+                    <span class="hand" style="color:var(--amber-pale)">@terra.mustela</span>
+                    <h2 class="title-lg">Suivez la vie de la tribu</h2>
+                    <p>Bêtises, siestes improbables et premières photos des bébés : tout se passe sur Instagram.</p>
+                </div>
+                <div class="btns">
+                    <a href="https://www.instagram.com/terra.mustela/" target="_blank" rel="noopener" class="btn btn-amber">Suivre sur Instagram</a>
+                    <a href="#contact" class="btn btn-ghost-light">Nous écrire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer id="main-footer"></footer>
 
-    <script>
-      (() => {
-        const d=document,s=d.createElement("script");s.type="module";
-        s.src="https://w.behold.so/widget.js";d.head.append(s);
-      })();
-    </script>
     <script type="module" src="app.js"></script>
 </body>
 </html>

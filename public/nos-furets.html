@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos furets | Terra Mustela</title>
+    <meta name="description" content="Reproducteurs, portées à venir et furets disponibles à l'adoption chez Terra Mustela.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Fraunces:ital,opsz,wght@0,9..144,500..700;1,9..144,500..700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+</head>
+<body>
+
+    <nav class="navbar" id="main-navbar"></nav>
+
+    <header class="page-hero">
+        <div class="container">
+            <img src="assets/img/emblem.png" alt="" class="emblem-mini">
+            <span class="eyebrow reveal">Nos furets</span>
+            <h1 class="title-xl reveal reveal-delay-1">Petites frimousses,<br><span class="underline-leaf">grands</span> caractères</h1>
+            <p class="reveal reveal-delay-2">Retrouvez ici nos reproducteurs, les portées annoncées et les petits disponibles à la réservation.</p>
+        </div>
+    </header>
+
+    <!-- Portées -->
+    <section class="section" style="padding-top:30px" id="portees">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Portées</span>
+                <h2 class="title-lg">Les bébés à venir</h2>
+                <p>Les petits quittent la maison vers 12 semaines, sevrés, socialisés et prêts pour l'aventure.</p>
+            </div>
+            <div id="litters"></div>
+        </div>
+    </section>
+
+    <!-- Reproducteurs -->
+    <section class="section section--sand" id="reproducteurs">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Reproducteurs</span>
+                <h2 class="title-lg">Les parents de la tribu</h2>
+                <p>Sélectionnés pour leur santé, leur caractère et leur douceur. Ils vivent avec nous et profitent d'une retraite dorée à la fin de leur carrière.</p>
+            </div>
+            <div class="filters reveal">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="f">♀ Femelles</button>
+                <button class="filter-btn" data-filter="m">♂ Mâles</button>
+            </div>
+            <div class="ferret-grid" id="reproGrid"></div>
+        </div>
+    </section>
+
+    <!-- Robes -->
+    <section class="section">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Petit lexique</span>
+                <h2 class="title-lg">Les robes du furet</h2>
+                <p>Putoisé, champagne, black sable… Voici de quoi briller lors de votre première visite.</p>
+            </div>
+            <div class="robe-grid">
+                <div class="robe reveal"><div class="robe-swatch" style="background:radial-gradient(circle at 50% 35%,#f3e2c4 0 32%,#8a5a34 33%)"></div><h4>Putoisé (sable)</h4><p>La robe « sauvage » : sous-poil crème, jarres brunes et masque.</p></div>
+                <div class="robe reveal reveal-delay-1"><div class="robe-swatch" style="background:radial-gradient(circle at 50% 35%,#fbf1de 0 32%,#d8b27e 33%)"></div><h4>Champagne</h4><p>Une version diluée et lumineuse, couleur café au lait.</p></div>
+                <div class="robe reveal reveal-delay-2"><div class="robe-swatch" style="background:radial-gradient(circle at 50% 35%,#e9dcc8 0 32%,#3a2a1e 33%)"></div><h4>Black sable</h4><p>Jarres très sombres, presque noires, sur un sous-poil clair.</p></div>
+                <div class="robe reveal reveal-delay-3"><div class="robe-swatch" style="background:radial-gradient(circle at 50% 35%,#f6ead7 0 32%,#b07447 33%)"></div><h4>Cannelle</h4><p>Des reflets roux chaleureux, une robe plus rare.</p></div>
+                <div class="robe reveal reveal-delay-4"><div class="robe-swatch" style="background:#fbf6ea"></div><h4>Albinos</h4><p>Pelage blanc crème et yeux rouges, tout en douceur.</p></div>
+                <div class="robe reveal"><div class="robe-swatch" style="background:linear-gradient(135deg,#9a9a9a,#d9d6cf)"></div><h4>Argenté</h4><p>Jarres grises mêlées de blanc, qui s'éclaircit avec l'âge.</p></div>
+            </div>
+            <p class="reveal" style="text-align:center;color:var(--muted);margin-top:34px;font-size:.95rem">Côté motifs, on parle aussi de <strong>panda</strong>, <strong>blaze</strong>, <strong>mitt</strong> (pattes blanches) ou <strong>point</strong> (style siamois). Chez nous, le caractère passe toujours avant la couleur !</p>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+        <div class="container">
+            <div class="cta-band reveal">
+                <svg class="deco" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><ellipse cx="32" cy="42" rx="13" ry="11"/><ellipse cx="14" cy="27" rx="6" ry="8"/><ellipse cx="25" cy="15" rx="6" ry="8"/><ellipse cx="39" cy="15" rx="6" ry="8"/><ellipse cx="50" cy="27" rx="6" ry="8"/></svg>
+                <div>
+                    <h2 class="title-lg">Un coup de cœur ?</h2>
+                    <p>Inscrivez-vous sur la liste d'attente : vous serez prévenu dès l'annonce de nos prochaines portées.</p>
+                </div>
+                <div class="btns">
+                    <a href="/adoption#reservation" class="btn btn-amber">Liste d'attente</a>
+                    <a href="/adoption" class="btn btn-ghost-light">Comment adopter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
