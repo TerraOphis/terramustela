@@ -1,0 +1,21 @@
+// Règles de sécurité Firestore pour Terra Mustela.
+// À copier dans la console Firebase > Firestore Database > Règles, puis "Publier".
+//
+// Le contenu du site (textes, photos, furets, portées, FAQ) est dans site/content :
+// tout le monde peut le lire (c'est ce qu'affiche le site), seuls les admins l'écrivent.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in ['martin.stuis11@gmail.com', 'terra.ophis@gmail.com'];
+    }
+
+    match /site/{docId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

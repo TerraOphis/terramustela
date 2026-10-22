@@ -1,7 +1,12 @@
 // 1. Importation des modules
 const express = require('express');
 const path = require('path');
+const crypto = require('crypto');
 const nodemailer = require('nodemailer');
+const multer = require('multer');
+const sharp = require('sharp');
+const admin = require('firebase-admin');
+const { S3Client, PutObjectCommand, DeleteObjectsCommand } = require('@aws-sdk/client-s3');
 require('dotenv').config(); // Charge les variables du fichier .env
 
 const transporter = nodemailer.createTransport({
@@ -16,6 +21,52 @@ const transporter = nodemailer.createTransport({
 
 // Adresse qui reçoit les messages du site (par défaut : le compte SMTP)
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || process.env.SMTP_EMAIL;
+
+// Firebase Admin : sert uniquement à vérifier les jetons de connexion Google de l'espace /admin
+// (pas besoin de clé de compte de service pour cette vérification)
+admin.initializeApp({ projectId: process.env.FIREBASE_PROJECT_ID || 'terramustela' });
+
+const ADMIN_EMAILS = ['martin.stuis11@gmail.com', 'terra.ophis@gmail.com'];
+
+// Cloudflare R2 : stockage des photos
+const s3 = new S3Client({
+    region: 'auto',
+    endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+    credentials: {
+        accessKeyId: process.env.R2_ACCESS_KEY_ID,
+        secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
+    }
+});
+const R2_PREFIX = 'terramustela';
+
+const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: { fileSize: 15 * 1024 * 1024 },
+    fileFilter: (req, file, cb) => cb(null, file.mimetype.startsWith('image/'))
+});
+
+// //////////////////////////////////////////////////
+// 🛡️ MIDDLEWARE DE SÉCURITÉ ADMIN
+// //////////////////////////////////////////////////
+const verifyAdmin = async (req, res, next) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ error: "Accès refusé : jeton d'authentification manquant." });
+    }
+
+    try {
+        const decodedToken = await admin.auth().verifyIdToken(authHeader.split('Bearer ')[1]);
+        if (!decodedToken.email_verified || !ADMIN_EMAILS.includes(decodedToken.email)) {
+            console.warn(`Tentative d'accès admin refusée : ${decodedToken.email}`);
+            return res.status(403).json({ error: 'Accès interdit : droits administrateur requis.' });
+        }
+        req.user = decodedToken;
+        next();
+    } catch (error) {
+        console.error('Erreur de validation du jeton :', error.message);
+        return res.status(401).json({ error: 'Jeton invalide ou expiré.' });
+    }
+};
 
 // 2. Initialisation de l'application
 const app = express();
@@ -32,6 +83,57 @@ app.use(express.static(path.join(__dirname, 'public'), {
         }
     }
 }));
+
+// //////////////////////////////////////////////////
+// 📷 PHOTOS (espace admin)
+// //////////////////////////////////////////////////
+app.post('/api/upload', verifyAdmin, upload.single('photo'), async (req, res) => {
+    try {
+        if (!req.file) return res.status(400).json({ error: 'Aucune image reçue.' });
+
+        const folder = String(req.body.folder || 'divers').replace(/[^a-zA-Z0-9_-]/g, '_');
+        const key = `${R2_PREFIX}/${folder}/${Date.now()}-${crypto.randomBytes(4).toString('hex')}.webp`;
+
+        const buffer = await sharp(req.file.buffer)
+            .rotate()
+            .resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
+            .webp({ quality: 82 })
+            .toBuffer();
+
+        await s3.send(new PutObjectCommand({
+            Bucket: process.env.R2_BUCKET_NAME,
+            Key: key,
+            Body: buffer,
+            ContentType: 'image/webp',
+            CacheControl: 'public, max-age=31536000, immutable'
+        }));
+
+        res.status(200).json({ url: `${process.env.R2_PUBLIC_URL}/${key}` });
+    } catch (error) {
+        console.error("Erreur d'upload :", error);
+        res.status(500).json({ error: "Erreur lors de l'envoi de l'image." });
+    }
+});
+
+// Suppression des photos qui ne sont plus utilisées (uniquement dans le dossier du site)
+app.post('/api/delete', verifyAdmin, async (req, res) => {
+    try {
+        const base = `${process.env.R2_PUBLIC_URL}/`;
+        const keys = (Array.isArray(req.body.urls) ? req.body.urls : [])
+            .filter(url => typeof url === 'string' && url.startsWith(base + R2_PREFIX + '/'))
+            .map(url => url.slice(base.length));
+        if (keys.length === 0) return res.status(200).json({ deleted: 0 });
+
+        await s3.send(new DeleteObjectsCommand({
+            Bucket: process.env.R2_BUCKET_NAME,
+            Delete: { Objects: keys.map(Key => ({ Key })) }
+        }));
+        res.status(200).json({ deleted: keys.length });
+    } catch (error) {
+        console.error('Erreur suppression R2 :', error);
+        res.status(500).json({ error: 'Erreur lors de la suppression.' });
+    }
+});
 
 // //////////////////////////////////////////////////
 // ✉️ FORMULAIRES (contact + pré-réservation)

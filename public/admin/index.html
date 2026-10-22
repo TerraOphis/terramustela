@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Administration | Terra Mustela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+</head>
+<body>
+
+    <!-- ===================== CONNEXION ===================== -->
+    <div class="login" id="loginView">
+        <div class="login-card">
+            <img src="/assets/img/logo_carre.png" alt="Terra Mustela" class="login-logo">
+            <h1>Espace administration</h1>
+            <p>Connectez-vous avec un compte Google autorisé pour gérer le contenu du site.</p>
+            <button class="btn btn-google" id="loginBtn">
+                <svg viewBox="0 0 48 48" width="20" height="20"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+                Se connecter avec Google
+            </button>
+            <p class="login-error" id="loginError" role="alert"></p>
+        </div>
+    </div>
+
+    <!-- ===================== APPLICATION ===================== -->
+    <div class="app" id="appView" hidden>
+        <aside class="sidebar" id="sidebar">
+            <a href="/" target="_blank" class="side-logo"><img src="/assets/img/logo_rect.png" alt="Terra Mustela"></a>
+            <nav id="sideNav"></nav>
+            <div class="side-user">
+                <img id="userAvatar" alt="" referrerpolicy="no-referrer">
+                <div>
+                    <strong id="userName"></strong>
+                    <button class="link-btn" id="logoutBtn">Se déconnecter</button>
+                </div>
+            </div>
+        </aside>
+        <div class="side-overlay" id="sideOverlay"></div>
+
+        <div class="main">
+            <header class="topbar">
+                <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+                </button>
+                <div class="topbar-title">
+                    <h1 id="viewTitle">Chargement…</h1>
+                    <p id="viewHint"></p>
+                </div>
+                <div class="topbar-actions">
+                    <span class="save-state" id="saveState"></span>
+                    <a href="/" target="_blank" class="btn btn-ghost" id="viewSiteBtn">Voir le site</a>
+                    <button class="btn btn-primary" id="saveBtn" disabled>Enregistrer</button>
+                </div>
+            </header>
+            <main class="content" id="content"></main>
+        </div>
+    </div>
+
+    <!-- Panneau d'édition (furets) -->
+    <div class="drawer-overlay" id="drawerOverlay" hidden></div>
+    <aside class="drawer" id="drawer" aria-hidden="true">
+        <header class="drawer-head">
+            <h2 id="drawerTitle"></h2>
+            <button class="icon-btn" id="drawerClose" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+        </header>
+        <div class="drawer-body" id="drawerBody"></div>
+        <footer class="drawer-foot">
+            <button class="btn btn-primary" id="drawerDone">Terminé</button>
+        </footer>
+    </aside>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script type="module" src="/admin/admin.js"></script>
+</body>
+</html>
