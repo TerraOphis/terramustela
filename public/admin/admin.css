@@ -1,0 +1,570 @@
+/* Variables et thèmes */
+:root {
+    --primary-beige: #f9f8f2;
+    --accent-brown: #4a4238;
+    --white: #ffffff;
+    --border-color: #e0ddd5;
+    --success-green: #6d8c6d;
+    --error-red: #a35d5d;
+    --input-bg: #fff;
+}
+
+.admin-body {
+    background-color: var(--primary-beige);
+    color: var(--accent-brown);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Navigation Admin */
+.admin-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    padding: 15px 40px;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.admin-nav .logo {
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+/* Conteneur Principal */
+.admin-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.admin-section {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 30px;
+}
+
+.admin-section h2 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+/* Formulaire Produit */
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+    /* Nouveau : Permet aux éléments de passer à la ligne s'il n'y a plus de place */
+    flex-wrap: wrap; 
+}
+
+.form-group input, .form-group select {
+    /* Nouveau : Utilisation de min-width au lieu du flex-basis pour ne pas affecter la hauteur sur mobile */
+    flex: 1;
+    min-width: 150px;
+}
+
+input, select, textarea {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--accent-brown);
+    font-family: inherit;
+    font-size: 0.9rem;
+    /* Nouveau : Empêche le padding et les bordures de faire déborder l'élément */
+    box-sizing: border-box; 
+    width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-brown);
+}
+
+.file-input-area {
+    background: #fafafa;
+    border: 2px dashed var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.file-input-area label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* Boutons */
+.btn-buy {
+    background: var(--accent-brown);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    letter-spacing: 1px;
+}
+
+.btn-buy:hover {
+    opacity: 0.9;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--accent-brown);
+    color: var(--accent-brown);
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* Inventaire */
+.inventory-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.inventory-item {
+    /* Nouveau : Ajustement de la grille pour insérer la miniature en premier */
+    display: grid;
+    grid-template-columns: 50px 2fr 1fr 1fr auto;
+    align-items: center;
+    background: #fafafa;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    gap: 15px;
+}
+
+
+/* Nouveau : Éditeur de texte riche pour les fiches complémentaires */
+.editor-container {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor-toolbar {
+    display: flex;
+    gap: 5px;
+    padding: 8px;
+    background: #f5f4ed;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.editor-toolbar button {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--accent-brown);
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.editor-toolbar button:hover {
+    background: var(--accent-brown);
+    color: white;
+    border-color: var(--accent-brown);
+}
+
+.editor-content {
+    min-height: 120px;
+    padding: 12px 15px;
+    color: var(--accent-brown);
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    background: var(--white);
+    overflow-y: auto;
+}
+
+.editor-content[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #888;
+}
+/* Nouveau : Badges de stock */
+.stock-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    display: inline-block;
+    min-width: 90px;
+}
+
+.stock-high { background: #e8f5e9; color: #2e7d32; }
+.stock-low { background: #fff3e0; color: #ef6c00; }
+.stock-out { background: #ffebee; color: #c62828; }
+
+/* Nouveau : Grille d'édition des photos dans la modale */
+.edit-photos-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f0eee7;
+    border-radius: 8px;
+}
+
+.edit-photo-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.edit-photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid white;
+}
+
+.edit-photo-item .btn-delete-photo {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #a35d5d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .inventory-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
+.inventory-item:last-child {
+    border-bottom: none;
+}
+
+.inventory-item span {
+    font-size: 0.95rem;
+}
+
+.inventory-item button {
+    font-weight: 600;
+    font-size: 0.8rem;
+    transition: transform 0.1s;
+}
+
+.inventory-item button:hover {
+    transform: scale(1.05);
+}
+
+/* Messages de statut */
+#uploadStatus {
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Style des boutons d'onglets */
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin: 0 20px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--accent-brown);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: #efeee7;
+}
+
+.tab-btn.active {
+    background: var(--accent-brown);
+    color: white;
+    border-color: var(--accent-brown);
+}
+
+.btn-logout {
+    background: transparent;
+    color: #a35d5d;
+    border: 1px solid #a35d5d;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-logout:hover {
+    background: #a35d5d;
+    color: white;
+}
+
+/* NOUVEAU: Styles de la modale Slider */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--accent-brown);
+}
+
+/* NOUVEAU : Design du tableau de bord des commandes structuré */
+.order-card {
+    background: #fafafa;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.order-card-header {
+    background: #f0eee7;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.order-id {
+    font-weight: 600;
+    color: var(--accent-brown);
+    margin-right: 15px;
+}
+
+.order-date {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.status-select {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-color: var(--accent-brown);
+}
+
+.order-card-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.order-col h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #777;
+}
+
+.order-col ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.95rem;
+}
+
+.order-price-total {
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+.order-address-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.order-contact-email {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    .order-card-body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* ========================================= */
+/* RESPONSIVE MOBILE - PARTIE ADMIN          */
+/* ========================================= */
+
+@media (max-width: 768px) {
+    /* Conteneur principal plus compact */
+    .admin-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .admin-section {
+        padding: 20px 15px;
+    }
+
+    /* 1. Navigation et Onglets */
+    .admin-nav {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .admin-nav .logo {
+        margin-bottom: 5px;
+    }
+
+    .admin-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+        gap: 8px;
+    }
+
+    .tab-btn {
+        flex: 1 1 calc(50% - 8px); /* Deux boutons par ligne */
+        text-align: center;
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+
+    .btn-logout {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    /* 2. Formulaires de création */
+    .form-group {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* 3. Liste d'inventaire (Stocks) */
+    .inventory-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .inventory-item span {
+        line-height: 1.4;
+        width: 100%;
+    }
+
+    .inventory-item > div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px dashed #eee;
+        padding-top: 10px;
+    }
+
+    .inventory-item button {
+        padding: 8px;
+    }
+
+    /* 4. Cartes des Commandes */
+    .order-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .order-card-header > div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .status-select {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .order-card-body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* 5. Modale et Grilles du Slider / Affichage */
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    /* Force les grilles "Boutique" et "Conseil" (qui ont un style inline) en 1 colonne */
+    #tab-affichage .admin-section > div[style] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    
+    /* Réduction de la taille des aperçus images sur mobile */
+    .admin-img-preview-grid {
+        justify-content: center;
+    }
+}

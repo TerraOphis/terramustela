@@ -1,0 +1,1830 @@
+:root {
+    --primary-beige: #fcf8f2; /* Fond crème clair */
+    --accent-brown: #4a4238;  /* Texte et logo sombre */
+    --soft-white: #ffffff;
+    --border-light: rgba(74, 66, 56, 0.1);
+}
+
+body.beige-theme {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary-beige);
+    color: var(--accent-brown);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--primary-beige);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(74, 66, 56, 0.12), 0 1px 0px rgba(74, 66, 56, 0.05); 
+    transition: box-shadow 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.main-logo {
+    height: 60px;
+    object-fit: contain;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--accent-brown);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.nav-links a.active {
+    border-bottom: 2px solid var(--accent-brown);
+}
+
+/* Hero Slider ajusté pour format HD Portrait */
+.hero-slider {
+    width: 80%; /* Un peu plus large pour l'équilibre visuel */
+    max-width: 1000px;
+    margin: 40px auto; /* Espace avec la nav */
+    aspect-ratio: 16 / 9; /* Format standard HD horizontal */
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px; /* Espace propre en dessous du slider */
+    position: relative;
+    z-index: 20;
+    padding-bottom: 50px;
+}
+
+.feature-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    /* On enlève height: 400px */
+    aspect-ratio: 1 / 1; /* Force la carte à être un carré parfait */
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    gap: 2px;
+}
+
+/* On s'assure que les images remplissent bien leur cellule sans déformer */
+.feature-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.boutique-card { background-image: url('assets/img/boutique-thumb.jpg'); }
+.conseils-card { background-image: url('assets/img/conseils-thumb.jpg'); }
+
+.btn-feature {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 15px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--accent-brown);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.product-latin {
+    font-style: italic;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+    /* NOUVEAU : Force sur 1 seule ligne avec "..." si trop long */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-family: 'Playfair Display', serif;
+    /* NOUVEAU : Force la zone à faire toujours 2 lignes de haut (alignement parfait) */
+    min-height: 2.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    font-weight: 600;
+    color: var(--accent-brown);
+    margin: 10px 0;
+    /* NOUVEAU : Pousse toujours le prix vers le bas de la zone */
+    margin-top: auto;
+}
+
+/* Login Page */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-logo {
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(74, 66, 56, 0.05);
+    border: 1px solid var(--border-light);
+}
+
+.login-card h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 10px;
+}
+
+.login-card p {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.error-msg {
+    color: #d9534f;
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: var(--accent-brown);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.mobile-only-control {
+    display: none !important;
+}
+
+/* NOUVEAU : Styles pour le menu déroulant (Dropdown) */
+.dropdown {
+    position: relative;
+    margin-bottom: -20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-beige);
+    min-width: 220px;
+    box-shadow: 0px 8px 15px rgba(74, 66, 56, 0.08);
+    padding: 15px 0;
+    z-index: 1001;
+    list-style: none;
+    border-radius: 4px;
+    border: 1px solid var(--border-light);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    padding: 8px 25px;
+}
+
+.dropdown-content a {
+    color: var(--accent-brown);
+    display: block;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-content a:hover {
+    color: #a49176; 
+    transform: translateX(5px); /* Petit effet de glissement sympa au survol */
+}
+
+.dropdown-subtitle {
+    font-weight: 600;
+    color: var(--accent-brown);
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--border-light);
+    margin: 10px 0;
+    padding: 0 !important;
+}
+
+/* Flèches Chevrons épurées */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 3.5rem;
+    font-weight: 100;
+    color: var(--accent-brown);
+    z-index: 100;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.slider-arrow:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow.prev { left: 20px; }
+.slider-arrow.next { right: 20px; }
+
+/* Aperçu admin pour le slider et les grids */
+.admin-img-preview-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    background: #f0eee7;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.admin-img-preview-grid.mini {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: fit-content;
+    gap: 5px;
+}
+
+.preview-item {
+    position: relative;
+    width: 120px;
+}
+
+.admin-img-preview-grid.mini .preview-item {
+    width: 60px;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid white;
+}
+
+.admin-img-preview-grid.mini .preview-item img {
+    height: 60px;
+}
+
+.preview-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.btn-delete-img {
+    background: #a35d5d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/* 1. L'overlay de texte : plus imposant, fond plein et texte blanc */
+.feature-overlay {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #4d5d30; /* Le VERT du logo (fond plein) */
+    padding: 10px 20px;  /* Plus de rembourrage pour le rendre plus gros */
+    border-radius: 12px;
+    border: none;
+    z-index: 5;
+    text-align: center;  /* Texte bien centré */
+    min-width: 300px;    /* Largeur minimale augmentée */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.feature-overlay h2 {
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    font-size: 2rem;   /* Titre beaucoup plus gros */
+    color: #ffffff;      /* Texte en blanc */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* 2. Le Bouton "Explorer" avec feuilles plus subtiles */
+.btn-explorer {
+    position: absolute;
+    top: 65%; /* Ajusté légèrement pour ne pas coller à l'overlay plus gros */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #4e3524; /* Le BRUN du logo pour trancher avec le vert */
+    color: #f9f8f2;
+    text-decoration: none;
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    z-index: 10;
+    transition: all 0.4s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Feuilles avec opacité réduite (plus subtiles) */
+.btn-explorer::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: -5px;
+    width: 30px;
+    height: 30px;
+    background: #4d5d30;
+    opacity: 0.2; /* Opacité très faible pour un effet discret */
+    border-radius: 0 100% 0 100%;
+    transform: rotate(-15deg);
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.btn-explorer::after {
+    content: "";
+    position: absolute;
+    right: -15px;
+    bottom: -5px;
+    width: 25px;
+    height: 25px;
+    background: #4d5d30;
+    opacity: 0.2; /* Opacité très faible */
+    border-radius: 100% 0 100% 0;
+    transform: rotate(10deg);
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+/* Animation au survol mise à jour */
+.btn-explorer:hover {
+    background: #6b7a54; /* Un vert plus clair au survol pour l'interaction */
+    transform: translate(-50%, -55%) scale(1.05);
+}
+
+/* Le cadre sobre pour la section boutique */
+.products-section {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+/* Grille réactive : finit les cartes géantes */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+/* Style de la carte produit */
+.product-card > a {
+    display: flex !important;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    background-color: #eee;
+    margin-bottom: 15px;
+}
+
+.product-info {
+    text-align: center;
+    /* NOUVEAU : Occupe tout l'espace disponible et pousse le reste vers le bas */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- FOOTER GLOBAL --- */
+footer {
+    background: #4C582B;
+    color: #f9f8f2;
+    padding: 80px 0 30px 0;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 80px;
+}
+
+/* --- LOGO ET NAV (GAUCHE) --- */
+.footer-brand {
+    flex: 0 0 350px; /* On élargit un peu la zone pour le logo */
+}
+
+.footer-logo-img {
+    width: 200px;    /* Augmentation de la taille (auparavant 120px) */
+    height: auto;
+    margin-bottom: 25px;
+    /* Suppression du filtre blanc pour garder les couleurs originales */
+    filter: none; 
+    background-color:var(--primary-beige);
+    border-radius: 50%;
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.footer-nav li {
+    margin-bottom: 12px;
+}
+
+.footer-nav a {
+    color: #f9f8f2;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: opacity 0.3s;
+}
+
+.footer-nav a:hover { opacity: 0.6; }
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    color: #f9f8f2;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(249, 248, 242, 0.3);
+    padding-bottom: 2px;
+}
+
+/* --- FORMULAIRE (DROITE) --- */
+.footer-contact {
+    flex: 1;
+}
+
+.footer-contact h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.contact-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-contact input, 
+.footer-contact textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(249, 248, 242, 0.4);
+    padding: 15px;
+    color: #f9f8f2;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+/* Fix pour la visibilité des placeholders */
+.footer-contact input::placeholder, 
+.footer-contact textarea::placeholder {
+    color: rgba(249, 248, 242, 0.8) !important;
+    font-weight: 400;
+}
+
+.btn-footer {
+    background: #4e3524;
+    color: #f9f8f2;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 40px;
+    margin-top:15px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-footer:hover {
+    background: #f9f8f2;
+    color: #4e3524;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(249, 248, 242, 0.1);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    opacity: 0.5;
+}
+
+/* --- SECTION INSTAGRAM --- */
+.instagram-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.insta-header {
+    margin-bottom: 40px;
+}
+
+.insta-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #4d5d30; /* Le VERT du logo */
+    margin: 0;
+}
+
+.insta-handle {
+    display: inline-block;
+    color: #4e3524; /* Le BRUN du logo */
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    border-bottom: 1px solid rgba(78, 53, 36, 0.3);
+    transition: opacity 0.3s;
+}
+
+.insta-handle:hover { opacity: 0.7; }
+
+/* NOUVEAU: Bandeau texte du slider public */
+.slide-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(192, 192, 192, 0.212);
+    color: var(--accent-brown);
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+    color:black;
+}
+
+/* NOUVEAU: Styles du Panier Latéral */
+.cart-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(74, 66, 56, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 1003;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cart-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0; right: -400px; /* Caché par défaut en dehors de l'écran */
+    width: 100%; max-width: 400px; 
+    /* NOUVEAU : 100dvh gère dynamiquement l'apparition de la barre de navigation mobile */
+    height: 100vh;
+    height: 100dvh;
+    background: var(--primary-beige);
+    z-index: 1004;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+    transition: right 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    padding: 25px 20px;
+    background: var(--soft-white);
+    border-bottom: 1px solid var(--border-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* NOUVEAU : Empêche l'en-tête de se réduire quand le milieu scrolle */
+    flex-shrink: 0;
+}
+
+.cart-header h2 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.close-cart {
+    background: none; border: none;
+    font-size: 2rem; cursor: pointer; color: var(--accent-brown);
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex; gap: 15px; margin-bottom: 20px;
+    background: var(--soft-white); padding: 10px; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.cart-item img {
+    width: 80px; height: 80px; object-fit: cover; border-radius: 6px;
+}
+
+.cart-item-details {
+    flex: 1; display: flex; flex-direction: column; justify-content: space-between;
+}
+
+.cart-item-title {
+    font-weight: 600; font-size: 0.95rem; margin: 0 0 5px 0;
+}
+
+.cart-item-price {
+    color: #4d5d30; font-weight: 600;
+}
+
+.cart-qty-controls {
+    display: flex; align-items: center; gap: 10px; margin-top: 5px;
+}
+
+.cart-qty-controls button {
+    background: #f0f0f0; border: none; width: 25px; height: 25px;
+    border-radius: 4px; cursor: pointer; font-weight: bold; color: var(--accent-brown);
+}
+
+.cart-footer {
+    padding: 20px; background: var(--soft-white);
+    border-top: 1px solid var(--border-light);
+    /* NOUVEAU : Empêche le pied de page et le bouton d'être repoussés hors de l'écran */
+    flex-shrink: 0; 
+}
+
+.cart-total {
+    display: flex; justify-content: space-between;
+    font-size: 1.2rem; font-weight: 600; margin-bottom: 20px;
+}
+
+.btn-checkout {
+    width: 100%; background: var(--accent-brown); color: white;
+    padding: 15px; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 600; cursor: pointer; letter-spacing: 1px;
+    transition: opacity 0.3s;
+}
+
+.btn-checkout:hover { opacity: 0.9; }
+
+/* ========================================= */
+/* DESIGN DES BOUTONS AJOUTER AU PANIER     */
+/* ========================================= */
+.btn-buy {
+    width: 100%;
+    background-color: #4d5d30; /* Le beau VERT de ton logo */
+    color: #f9f8f2; /* Blanc cassé / beige crème texturé */
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(77, 93, 48, 0.15);
+}
+
+/* Effet au survol : le bouton s'assombrit légèrement et monte un peu */
+.btn-buy:hover:not([disabled]) {
+    background-color: #3b4724; 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(77, 93, 48, 0.25);
+}
+
+/* Effet au clic */
+.btn-buy:active:not([disabled]) {
+    transform: translateY(0);
+}
+
+/* État désactivé (Rupture de stock / Épuisé) */
+.btn-buy:disabled {
+    background-color: #d1cbd4 !important; /* Gris chaud/beige neutre */
+    color: #8c858e !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    transform: none !important;
+    opacity: 0.7;
+}
+
+/* NOUVEAU : Layout double pour la page d'authentification */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.auth-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(74, 66, 56, 0.05);
+    border: 1px solid var(--border-light);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-card h2 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--accent-brown);
+}
+
+.auth-card p {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.auth-form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-separator {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: #888;
+}
+
+.auth-separator hr {
+    flex: 1;
+    border: none;
+    border-top: 1px solid var(--border-light);
+}
+
+.auth-separator span {
+    padding: 0 10px;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .auth-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .auth-form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* NOUVEAU : Styles pour la page de vérification (Checkout) */
+.checkout-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    margin: 40px auto 80px auto;
+}
+
+.checkout-step {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    margin-bottom: 25px;
+}
+
+.checkout-step h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkout-step-number {
+    background: var(--accent-brown);
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.checkout-summary {
+    background: var(--primary-beige);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    position: sticky;
+    top: 100px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-light);
+}
+
+@media (max-width: 768px) {
+    .checkout-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* ========================================= */
+/* NOUVEAU : PAGE PRODUIT & FICHES (CORRIGÉ) */
+/* ========================================= */
+
+.product-page-layout {
+    display: grid;
+    /* La magie opère ici : 60% pour l'image, 35% pour l'achat, 5% d'espace */
+    grid-template-columns: 55% 40%;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    align-items: start; /* Empêche la colonne de droite de s'étirer vers le bas */
+}
+
+/* --- Colonne de Gauche (Images & Description) --- */
+
+.gallery-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 80px;
+    flex-shrink: 0; /* Empêche les miniatures de s'écraser */
+}
+
+.thumbnails img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    cursor: pointer;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.thumbnails img:hover {
+    opacity: 0.8;
+    transform: translateX(3px); /* Petit effet interactif */
+    border-color: var(--accent-brown);
+}
+
+.main-image {
+    flex: 1; /* L'image principale prend tout l'espace restant des 60% */
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: cover; /* Remplit bien l'espace sans se déformer */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(74, 66, 56, 0.08);
+}
+
+.product-description-bottom {
+    margin-top: 30px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+/* --- Colonne de Droite (Achat & Fiche) --- */
+
+.product-right {
+    position: sticky;
+    top: 100px; /* L'interface d'achat reste à l'écran quand on lit la description */
+}
+
+.lot-selector {
+    margin-bottom: 25px;
+}
+
+.lot-selector select {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    color: var(--accent-brown);
+    font-weight: 600;
+}
+
+.care-guide-section {
+    margin-top: 30px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.care-guide-section h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    margin-top: 0;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 20px;
+}
+
+.care-guide-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* NOUVEAU : Réduction et contrôle des marges générées par l'éditeur de texte */
+.care-guide-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    font-size: 1.3rem;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px dotted var(--border-light);
+    padding-bottom: 5px;
+    margin:0
+}
+
+.care-guide-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.care-guide-content p {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.care-guide-content ul {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.care-guide-content li {
+    margin-bottom: 5px;
+}
+
+#productDetails {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* ========================================= */
+/* NOUVEAU : BADGE STOCK BOUTIQUE            */
+/* ========================================= */
+.low-stock-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #4d5d30; /* Le vert du logo */
+    color: #eadb9d; /* Un jaune/doré doux raccord avec le thème */
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    pointer-events: none; /* Empêche le badge de bloquer le clic sur l'image */
+}
+
+
+
+/* ========================================= */
+/* NOUVEAU : PAGES CONSEILS ET GUIDE         */
+/* ========================================= */
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.guide-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.guide-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.guide-info {
+    padding: 25px;
+}
+
+.guide-info h3 {
+    margin-top: 0;
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.guide-info p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    color: #4d5d30;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(77, 93, 48, 0.2);
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
+}
+
+.guide-card:hover .read-more {
+    border-color: #4d5d30;
+}
+
+/* Page de Lecture (Guide Individuel) */
+.single-guide {
+    background: #fff;
+    padding: 50px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+}
+
+.guide-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.guide-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: var(--accent-brown);
+    margin-bottom: 10px;
+}
+
+.guide-meta {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+}
+
+.guide-hero-img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.guide-content-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #4a4238;
+}
+
+.guide-content-body h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+}
+
+.guide-content-body h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent-brown);
+    font-size: 1.4rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.guide-content-body img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 25px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.guide-content-body ul {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.guide-content-body li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+    .single-guide {
+        padding: 25px;
+    }
+    .guide-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ========================================= */
+/* NOUVEAU : STYLE OUTILS EDITEUR DE TEXTE   */
+/* ========================================= */
+.editor-toolbar input[type="color"] {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    height: 28px;
+    width: 30px;
+    padding: 0;
+    cursor: pointer;
+    background: var(--white);
+}
+
+.toolbar-separator {
+    border-left: 1px solid var(--border-color);
+    margin: 0 5px;
+    height: 20px;
+    align-self: center;
+}
+
+/* ========================================= */
+/* ANIMATIONS BOUTIQUE & CHARGEMENT          */
+/* ========================================= */
+
+/* Animation du texte de chargement */
+@keyframes pulse {
+    0% { opacity: 0.5; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Animation d'apparition fluide des cartes produits */
+@keyframes fadeInProduct {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+/* ========================================= */
+/* NOUVEAU : BOUTON PANIER FLOTTANT          */
+/* ========================================= */
+
+.floating-cart-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #4d5d30; /* Vert du thème Terraophis */
+    color: #f9f8f2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.floating-cart-btn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.floating-cart-btn:hover {
+    background-color: #3b4724;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.floating-cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #a35d5d; /* Rouge Terraophis pour alerter */
+    color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--primary-beige);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Animation au moment de l'ajout */
+@keyframes cartBounce {
+    0% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.1) translateY(-10px); }
+    100% { transform: scale(1) translateY(0); }
+}
+
+.floating-cart-btn.bounce {
+    animation: cartBounce 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .floating-cart-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+}
+
+/* NOUVEAU : DESIGN DE LA MODALE MÉTÉO */
+.weather-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(74, 66, 56, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.weather-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.weather-modal-content {
+    background: var(--primary-beige);
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    border: 1px solid var(--border-light);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.weather-modal.show .weather-modal-content {
+    transform: translateY(0);
+}
+
+.weather-close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--accent-brown);
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.2s;
+}
+
+.weather-close-modal:hover {
+    opacity: 0.6;
+}
+.shipping-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+.shipping-option:hover { background: #f9f8f2; }
+.shipping-option input[type="radio"] { width: 18px; height: 18px; accent-color: #4d5d30; }
+
+
+/* --- Responsive Mobile --- */
+@media (max-width: 992px) {
+    .product-page-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .product-right {
+        position: static;
+    }
+    .gallery-wrapper { 
+        flex-direction: column-reverse; 
+    }
+    .thumbnails { 
+        flex-direction: row; 
+        width: 100%; 
+        overflow-x: auto; 
+    }
+    .thumbnails img { 
+        width: 70px; 
+    }
+}
+
+
+
+
+
+
+
+/* ========================================= */
+/* NOUVEAU: STYLES RESPONSIVE (MOBILE & TAB) */
+/* ========================================= */
+
+/* Cacher le hamburger sur PC */
+@media (min-width: 769px) {
+    .hamburger-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- NAVBAR & MENU HAMBURGER --- */
+    .nav-container {
+        padding: 0 20px;
+    }
+
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 25px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1002; /* Au-dessus du menu */
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    .hamburger-btn span {
+        width: 100%;
+        height: 3px;
+        background: var(--accent-brown);
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* CORRECTION : L'axe Y est ajusté à 7.5px au lieu de 11px pour que les lignes se croisent exactement au centre sans déborder */
+    .hamburger-btn.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .hamburger-btn.active span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+    .nav-links {
+        position: fixed;
+        top: 85px; 
+        right: -100%; 
+        width: 100%;
+        height: calc(100dvh - 85px); 
+        background-color: var(--primary-beige);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        /* NOUVEAU : On utilise box-sizing et un padding global pour que le menu tienne parfaitement dans l'écran sans créer d'énorme vide */
+        padding: 50px 0 80px 0;
+        box-sizing: border-box; 
+        transition: right 0.4s ease-in-out;
+        z-index: 1001;
+        overflow-y: auto;
+    }
+
+    /* NOUVEAU : On harmonise la taille de texte de tous les liens principaux (Accueil, Conseils, À Propos) avec le lien Boutique */
+    .nav-links > li > a {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .nav-links.open {
+        right: 0; 
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        font-size: 1.2rem;
+    }
+
+    .nav-icons {
+        margin-left: 0;
+    }
+
+    /* NOUVEAU : Masque le nom du client à côté de l'icône de profil sur mobile */
+    #nav-auth-btn span {
+        display: none;
+    }
+
+    /* NOUVEAU : Centrer et mettre en valeur le titre parent "BOUTIQUE" */
+    .dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown > a {
+        font-size: 1.5rem;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    /* Menu Boutique toujours ouvert et fusionné sur mobile */
+    .dropdown-content {
+        position: static;
+        display: block !important; 
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+    .dropdown-content li {
+        margin: 15px 0;
+    }
+    
+    .dropdown-content a {
+        font-size: 1rem;
+        opacity: 0.8; 
+    }
+
+    .dropdown-subtitle {
+        margin-top: 25px;
+        font-size: 1.1rem;
+    }
+
+    .dropdown-divider {
+        display: none;
+    }
+
+    /* --- RESTE DU SITE (GRILLES & COMPOSANTS) --- */
+    
+    .hero-slider {
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+        aspect-ratio: 16 / 9;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+
+    .feature-overlay {
+        min-width: 80%;
+        padding: 20px 30px;
+    }
+
+    .feature-overlay h2 {
+        font-size: 1.6rem;
+    }
+
+    /* NOUVEAU : On abaisse le bouton sous l'overlay vert sur mobile pour éviter la superposition */
+    .btn-explorer {
+        top: 76% !important;
+    }
+
+    .product-details-container {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    .shop-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .shop-controls input, 
+    .shop-controls select {
+        width: 100% !important;
+        /* NOUVEAU : Sécurise la largeur pour éviter le débordement horizontal */
+        box-sizing: border-box;
+    }
+
+    /* NOUVEAU : Réduction des marges intérieures massives sur mobile */
+    .products-section {
+        padding: 20px;
+    }
+    
+    .profile-box {
+        padding: 20px;
+    }
+
+    .form-address input, .form-address select {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    /* --- NOUVEAU : Footer Responsive et plus compact --- */
+    footer {
+        padding: 40px 0 20px 0;
+        margin-top: 30px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        padding: 0 20px; /* Réduit l'espace vide sur les côtés */
+    }
+
+    .footer-logo-img {
+        width: 150px; /* Image plus petite sur téléphone */
+        margin-bottom: 15px;
+    }
+
+    .footer-brand {
+        width:100%;
+        flex: auto;
+        /* NOUVEAU : Centrage forcé pour tous les éléments enfants */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
+    }
+
+    .footer-contact h3 {
+        font-size: 1.3rem; /* Titre affiné */
+    }
+    
+    .contact-subtitle {
+        margin-bottom: 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .footer-contact input, 
+    .footer-contact textarea {
+        padding: 10px; /* Champs moins épais */
+        box-sizing: border-box;
+    }
+    
+    /* NOUVEAU : Affichage et styles des grilles personnalisables sur mobile */
+    .mobile-only-control {
+        display: block !important;
+    }
+    
+    .product-grid.grid-cols-1 {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .product-grid.grid-cols-2 {
+        /* CORRECTION CRITIQUE : minmax(0, 1fr) force la colonne à respecter le cadre de l'écran sans déborder */
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 15px !important;
+    }
+
+    /* NOUVEAU : Optimisation des cartes pour l'affichage côte à côte sur petit écran */
+    .product-grid.grid-cols-2 .product-name {
+        font-size: 0.95rem !important;
+        min-height: 2.6rem !important;
+    }
+
+    .product-grid.grid-cols-2 .product-latin {
+        font-size: 0.7rem !important;
+    }
+
+    .product-grid.grid-cols-2 .btn-buy {
+        padding: 10px 5px !important;
+        font-size: 0.7rem !important;
+        letter-spacing: 0.5px !important;
+        white-space: normal !important; /* Permet au texte du bouton ("AJOUTER AU PANIER") de passer sur 2 lignes sans casser la mise en page */
+    }
+    
+    .btn-footer {
+        padding: 12px 30px;
+        margin-top: 5px;
+    }
+}
